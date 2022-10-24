@@ -24,7 +24,7 @@ df_shop = pd.read_table(rep+"retailer extract.csv", delimiter=';')
 df_shop_en_rayon = df_shop[df_shop['Date déréf.'].isnull()]
 df_shop_en_rayon = df_shop_en_rayon[df_shop_en_rayon['Date Deb Cad.'].notnull()]
 
-# The products with negative stock quantity are considered as not present 
+# The products with null or negative stock quantity are considered as not present 
 df_shop_en_rayon['Stock en quantité'] = pd.to_numeric(df_shop_en_rayon['Stock en quantité'], errors='coerce')
 df_shop_en_rayon = df_shop_en_rayon[df_shop_en_rayon['Stock en quantité'] > 0]
 
